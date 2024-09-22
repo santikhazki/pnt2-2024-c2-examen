@@ -30,7 +30,7 @@ Luego de abrir el correo encuentras un mail de tu Líder Técnico con tu primera
 
 ## Intrucciones para la entrega
 
-Si ya terminaste o ya es la hora de salida (pregunta cuando termina) asegurate de seguir los siguientes pasos para la entrega:
+Si ya terminaste o si son las 10:00 asegurate de seguir los siguientes pasos para la entrega:
 
 1. Realizar un commit a tu repo con un mensaje con tu nombre completo
 2. Realizar un push a tu repositorio
