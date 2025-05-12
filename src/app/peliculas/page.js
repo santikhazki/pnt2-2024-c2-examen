@@ -10,18 +10,29 @@ export default function PeliculaPage() {
     const [paginaActual, setPaginaActual] = useState(1);
     const pageSize = 3; // Define el número de películas por página
 
+    // useEffect(() => {
+    //     async function cargarPeliculas() {
+    //         try {
+    //             const data = await obtenerPeliculas(pageSize, paginaActual);
+    //             setPelicula(data);
+    //         } catch (error) {
+    //             console.error("Error al cargar las películas en el componente:", error);
+    //             // Aquí podrías manejar el error mostrando un mensaje al usuario
+    //         }
+    //     }
+
+    //     cargarPeliculas();
+    // }, [paginaActual, pageSize]);
+
     useEffect(() => {
-        async function cargarPeliculas() {
-            try {
-                const data = await obtenerPeliculas(pageSize, paginaActual);
+        obtenerPeliculas(pageSize, paginaActual)
+            .then((data) => {
                 setPelicula(data);
-            } catch (error) {
+            })
+            .catch((error) => {
                 console.error("Error al cargar las películas en el componente:", error);
                 // Aquí podrías manejar el error mostrando un mensaje al usuario
-            }
-        }
-
-        cargarPeliculas();
+            });
     }, [paginaActual, pageSize]);
 
     const siguientePagina = () => {
@@ -37,7 +48,7 @@ export default function PeliculaPage() {
     return (
         <>
             <div className="container">
-                <PeliculaList 
+                <PeliculaList
                     Peliculas={peliculas}
                     PageSize={pageSize}
                     Page={paginaActual}
