@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from 'next/navigation';
 import { obtenerPeliculas } from "../../../services/endpoint_services";
+import "./premios.css";
 
 
 export default function PeliculaAwards({ params }) {
@@ -22,7 +23,7 @@ export default function PeliculaAwards({ params }) {
 
             } catch (error) {
                 console.error("Error al cargar las películas en el componente:", error);
-                // Aquí podrías manejar el error mostrando un mensaje al usuario
+    
             }
         }
 
@@ -31,10 +32,13 @@ export default function PeliculaAwards({ params }) {
 
 
     return (
-        <div className="pelicula-item__info">
-            <h3>Wins: {awards["wins"]}</h3>
-            <h3>Nominations: {awards["nominations"]}</h3>
-            <h3>Text: {awards["text"]}</h3>
+        <div className="pelicula-premios-container">
+          <h2 className="pelicula-premios-header">Premios de la Película</h2>
+          <div className="pelicula-premios-list">
+            <div className="premio-item">🏆 <strong>Ganados:</strong> {awards?.wins ?? "N/A"}</div>
+            <div className="premio-item">🎖️ <strong>Nominaciones:</strong> {awards?.nominations ?? "N/A"}</div>
+            <div className="premio-item">📝 <strong>Descripción:</strong> {awards?.text ?? "No hay descripción."}</div>
+          </div>
         </div>
-    );
+      );
 }

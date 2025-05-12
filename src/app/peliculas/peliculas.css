@@ -1,115 +1,90 @@
-.avatar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .avatar img {
-    display: block;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .card {
-    position: relative;
-    margin: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 6px;
-    padding: 1rem;
-    overflow: hidden;
-    background: white;
-  }
-  
-  .pelicula-item {
-    margin: 1rem;
-    width: calc(45% - 2rem);
-    min-width: 17.5rem;
-  }
-  
-  .pelicula-item a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    padding: 1rem;
-    color: white;
-    background: #292929;
-  }
-  
-  .pelicula-item a:hover,
-  .pelicula-item a:active {
-    background: #ffd900;
-  }
-  
-  .pelicula-item__content {
-    padding: 0;
-  }
-  
-  .pelicula-item__image {
-    width: 4rem;
-    height: 4rem;
-    margin-right: 1rem;
-  }
-  
-  .pelicula-item__info h2 {
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem 0;
-    font-weight: normal;
-    color: #ffd900;
-  }
-  
-  .pelicula-item:hover h2,
-  .pelicula-item:active h2,
-  .pelicula-item:hover h3,
-  .pelicula-item:active h3 {
-    color: #292929;
-  }
-  
-  .pelicula-item__info h3 {
-    margin: 0;
-  }
-  .peliculas-list {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    width: 90%;
-    max-width: 50rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente los elementos hijos */
+.pelicula-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  list-style: none;
+}
+
+.pelicula-item {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.pelicula-item:hover {
+  transform: translateY(-5px);
+}
+
+.pelicula-item__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.pelicula-item__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.pelicula-item__info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pelicula-item__info h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.pelicula-item__info h3 {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: #666;
+  margin-top: 8px;
+}
+
+.ver-premios-button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.ver-premios-button:hover {
+  background-color: #005bb5;
 }
 
 .pagination-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    width: 100%; /* O un ancho específico si lo prefieres */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
 }
 
 .pagination-controls button {
-    padding: 8px 16px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .pagination-controls button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.pagination-controls span {
-    margin: 0 10px;
-    line-height: 2.2;
+  background-color: #ccc;
+  cursor: not-allowed;
 }

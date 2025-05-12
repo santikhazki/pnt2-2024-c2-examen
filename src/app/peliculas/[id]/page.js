@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from 'next/navigation';
 import { obtenerPeliculas } from "../../services/endpoint_services";
-
+import "./detalle.css";
 
 export default function PageDetails({ params }) {
     const searchParams = useSearchParams()
@@ -19,7 +19,7 @@ export default function PageDetails({ params }) {
                 
             } catch (error) {
                 console.error("Error al cargar las películas en el componente:", error);
-                // Aquí podrías manejar el error mostrando un mensaje al usuario
+            
             }
         }
 
@@ -28,9 +28,13 @@ export default function PageDetails({ params }) {
 
 
     return (
-        <div className="pelicula-item__info">
-            <h3>{pelicula?.directors ? pelicula.directors.join(", ") : "Sin director"}</h3>
-            <h2>{pelicula?.fullplot || "Sin sinopsis"}</h2>
+        <div className="pelicula-detalle-container">
+          <h3 className="pelicula-detalle-directores">
+            {pelicula?.directors ? pelicula.directors.join(", ") : "Sin director"}
+          </h3>
+          <p className="pelicula-detalle-sinopsis">
+            {pelicula?.fullplot || "Sin sinopsis"}
+          </p>
         </div>
-    );
+      );
 }
